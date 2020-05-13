@@ -8,11 +8,53 @@
 
 //Get all Books
 //Get all Reviews
-const bookAdapter = new BooksAdapter("http://localhost:3000/books")
+const booksAdapter = new BooksAdapter("http://localhost:3000/books")
 const reviewsAdapter = new ReviewsAdapter("http://localhost:3000/reviews")
 
-bookAdapter.fetchBooks()
+booksAdapter.fetchBooks()
 reviewsAdapter.fetchReviews()
+
+
+//Add event listener on menu buttons
+//Select our main div
+
+const main = document.getElementById('main')
+const menu = document.getElementById('menu')
+
+menu.addEventListener('click', handleMenuClick)
+
+function handleMenuClick(event){
+  if (event.target.id !== menu){
+    callbacks[`${event.target.id}`]()
+  }
+}
+
+const callbacks = {
+  allBooks: renderAllBooks,
+  //allBrands: renderAllBrands,
+  //booksReviews: renderAllBooksBrands,
+  //newBooks: renderNewBookForm,
+  //newReview: renderNewReviewForm
+}
+
+function renderAllBooks(){
+ Book.all.forEach(book => {
+    main.appendChild(book.fullRender())
+  })
+  //render all books with title, genre, author, image_url
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 //bookButton.addEventListener('click', handleSubmitBook)
 
