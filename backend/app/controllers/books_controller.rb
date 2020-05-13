@@ -16,7 +16,7 @@ class BooksController < ApplicationController
 
     # POST /books
     def create
-        new_book = Book.new(title: params['title'], author: params['author'], genre: params['genre'])
+        new_book = Book.new(title: params['title'], author: params['author'], genre: params['genre'], image_url: params['image_url'])
         if new_book.save
             render json: BookSerializer.new(new_book)
         else
