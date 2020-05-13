@@ -6,11 +6,13 @@
 //const bookImage = document.getElementById('book-image')
 //const bookButton = document.getElementById('add-button')
 
-let bookAdapter = new BooksAdapter("http://localhost:3000/books")
-//const brandsAdapter = new BrandsAdapter("http://localhost:3000/brands")
+//Get all Books
+//Get all Reviews
+const bookAdapter = new BooksAdapter("http://localhost:3000/books")
+const reviewsAdapter = new ReviewsAdapter("http://localhost:3000/reviews")
 
 bookAdapter.fetchBooks()
-//brandsAdapter.fetchBrands()
+reviewsAdapter.fetchReviews()
 
 //bookButton.addEventListener('click', handleSubmitBook)
 
