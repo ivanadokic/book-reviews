@@ -4,8 +4,27 @@ class Review{
   
     constructor(description){
       this.description = description
-  
-    Review.all.push(this)
+
+      this.element = document.createElement('div')
+      this.element.className = "review"
+      this.element.id = `review-${this.id}`
+
+      Review.all.push(this)
+      
+    }
+    books(){
+      return Book.all.filter(function(book){
+        return book.title === this.id
+      }, this)
     }
   
+  fullRender(){
+    this.element.innerHTML = `
+    <h1>${this.title}</h1>
+    <h3>This review's Books: <h3>
+    ${this.books().map(book => book.title).join(", ")}
+    `
+    return this.element
+
   }
+}

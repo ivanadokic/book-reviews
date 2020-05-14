@@ -21,20 +21,37 @@ reviewsAdapter.fetchReviews()
 const main = document.getElementById('main')
 const menu = document.getElementById('menu')
 
+const formDiv = document.createElement('div')
+
 menu.addEventListener('click', handleMenuClick)
+formDiv.addEventListener('click', handleFormSubmit)
 
 function handleMenuClick(event){
   if (event.target.id !== menu){
+    main.innerHTML = ``
     callbacks[`${event.target.id}`]()
+  }
+}
+
+function handleFormSubmit(event){
+  if(event.target.tagName == "BUTTON"){
+    let inputs = formDiv.querySelectorAll('input')
+    let select = formDiv.querySelector('select')
+    let newBookObj = {
+      title: inputs[0].value,
+      author: inputs[1].value,
+    genre: select.value
+    }
+    bookssAdapter.newBook(newBookObj)
   }
 }
 
 const callbacks = {
   allBooks: renderAllBooks,
-  //allBrands: renderAllBrands,
-  //booksReviews: renderAllBooksBrands,
-  //newBooks: renderNewBookForm,
-  //newReview: renderNewReviewForm
+  allReviews: renderAllReviews,
+  booksReviews: renderAllbooksReviews,
+  newBooks: renderNewBookForm,
+  newReview: renderNewReviewForm
 }
 
 function renderAllBooks(){
@@ -42,6 +59,37 @@ function renderAllBooks(){
     main.appendChild(book.fullRender())
   })
   //render all books with title, genre, author, image_url
+}
+function renderAllBooksReviews(){
+  Book.all.forEach(review => {
+     main.appendChild(review.fullRender())
+   })
+
+ }
+
+ function renderNewBookForm(){
+  formDiv.innerHTML = `
+    Book Title:
+    <input type="text" />
+    <br>
+    Book Author:
+    <input type="text" />
+    <br>
+    Book Genre:
+    <input type="text" />
+    <br>
+    Book Cover url:
+    <input type="text" />
+    <br>
+    <select>
+       <option value="default" selected="selected">Select one option </option>
+     ${Brand.all.map(review => {
+       return `<option value=${review.id}>${review.name}</option>`
+     }).join("")}
+    </select>
+    <button>Make new Book!</button>
+  `
+  main.appendChild(formDiv)
 }
 
 
