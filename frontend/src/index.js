@@ -42,16 +42,16 @@ function handleFormSubmit(event){
       author: inputs[1].value,
     genre: select.value
     }
-    bookssAdapter.newBook(newBookObj)
+    booksAdapter.newBook(newBookObj)
   }
 }
 
 const callbacks = {
   allBooks: renderAllBooks,
-  allReviews: renderAllReviews,
-  booksReviews: renderAllbooksReviews,
-  newBooks: renderNewBookForm,
-  newReview: renderNewReviewForm
+  //allReviews: renderAllReviews,
+  booksReviews: renderAllBooksReviews,
+  newBook: renderNewBookForm,
+ // newReview: renderNewReviewForm
 }
 
 function renderAllBooks(){
@@ -83,8 +83,8 @@ function renderAllBooksReviews(){
     <br>
     <select>
        <option value="default" selected="selected">Select one option </option>
-     ${Brand.all.map(review => {
-       return `<option value=${review.id}>${review.name}</option>`
+     ${Book.all.map(book => {
+       return `<option value=${book.id}>${book.title} by ${book.author}</option>`
      }).join("")}
     </select>
     <button>Make new Book!</button>

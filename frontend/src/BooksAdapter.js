@@ -9,7 +9,11 @@ class BooksAdapter{
         .then(res => res.json())
         .then(resObj => {
           resObj.data.forEach(bookObj => {
-            let sanitized = {...bookObj.attributes, title: bookObj.title, genre: bookObj.genre}
+            const {id, attributes} = bookObj
+            const sanitized = {
+              ...attributes,
+              id
+            }
             new Book(sanitized)
             
           })
