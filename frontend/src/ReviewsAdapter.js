@@ -10,6 +10,7 @@ class ReviewsAdapter{
           resObj.data.forEach(obj => {
             let sanitized = {description: obj.description, ...obj.attributes}
             new Review(sanitized)
+            console.log(sanitized)
           })
         })
         .then(() => console.log(Review.all))

@@ -1,7 +1,5 @@
-
 class BooksController < ApplicationController
 
-    
     # GET /books
     def index
         books = Book.all 
@@ -13,8 +11,6 @@ class BooksController < ApplicationController
         book = Book.find_by(id: params[:id])
         render json: BookSerializer.new(book)
     end
-
-
     # POST /books
     def create
         
@@ -36,5 +32,4 @@ class BooksController < ApplicationController
     def book_params
         params.require(:book).permit(:title, :author, :genre, :image_url)
     end
-  
 end

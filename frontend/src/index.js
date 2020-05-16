@@ -53,6 +53,15 @@ function handleNewBookSubmit(event){
 function handleNewReviewSubmit(event) {
   event.preventDefault()
 
+    const reviewObj = {
+      book_id: event.target.querySelector('select').value,
+      description: event.target.querySelector('input').value
+    }
+
+    const review = new Review(reviewObj)
+
+    review.submit()
+
 }
 
 const callbacks = {
@@ -73,7 +82,7 @@ function renderAllBooksReviews(){
  Review.all.forEach(review => {
      main.appendChild(review.fullRender())
    })
-
+//render all reviews with description
  }
 
  function renderNewBookForm(){
@@ -112,7 +121,7 @@ function renderNewReviewForm(){
   }).join("")}
  </select>
  <br>
- <input type="text" />
+ <input type="text" name="description" />
  <input type="submit" value="Please leave a Review!"/>
  <br>
    
@@ -122,20 +131,6 @@ function renderNewReviewForm(){
   formDiv.querySelector('form').addEventListener('submit', handleNewReviewSubmit)
   main.appendChild(formDiv)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //bookButton.addEventListener('click', handleSubmitBook)
