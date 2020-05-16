@@ -20,8 +20,8 @@ class Review{
   
   fullRender(){
     this.element.innerHTML = `
-    <h1>${this.title}</h1>
-    <h3>This review's Books: <h3>
+    <h1>${this. description}</h1>
+    <h3>This book's Review: <h3>
     ${this.books().map(book => book.title).join(", ")}
     `
     return this.element

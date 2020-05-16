@@ -24,7 +24,6 @@ const menu = document.getElementById('menu')
 const formDiv = document.createElement('div')
 
 menu.addEventListener('click', handleMenuClick)
-formDiv.addEventListener('click', handleFormSubmit)
 
 function handleMenuClick(event){
   if (event.target.id !== menu){
@@ -33,17 +32,23 @@ function handleMenuClick(event){
   }
 }
 
-function handleFormSubmit(event){
-  if(event.target.tagName == "BUTTON"){
+function handleNewBookSubmit(event){
+  event.preventDefault()
     let inputs = formDiv.querySelectorAll('input')
     let select = formDiv.querySelector('select')
     let newBookObj = {
       title: inputs[0].value,
       author: inputs[1].value,
-    genre: select.value
+    genre: inputs[2].value,
+    cover_url: inputs[3].value
     }
+    
     booksAdapter.newBook(newBookObj)
   }
+
+function handleNewReviewSubmit(event) {
+  event.preventDefault()
+
 }
 
 const callbacks = {
@@ -51,7 +56,7 @@ const callbacks = {
   //allReviews: renderAllReviews,
   booksReviews: renderAllBooksReviews,
   newBook: renderNewBookForm,
- // newReview: renderNewReviewForm
+  newReview: renderNewReviewForm
 }
 
 function renderAllBooks(){
@@ -69,6 +74,7 @@ function renderAllBooksReviews(){
 
  function renderNewBookForm(){
   formDiv.innerHTML = `
+  <form>
     Book Title:
     <input type="text" />
     <br>
@@ -81,16 +87,40 @@ function renderAllBooksReviews(){
     Book Cover url:
     <input type="text" />
     <br>
-    <select>
-       <option value="default" selected="selected">Select one option </option>
-     ${Book.all.map(book => {
-       return `<option value=${book.id}>${book.title} by ${book.author}</option>`
-     }).join("")}
-    </select>
-    <button>Make new Book!</button>
+    
+    <input type="submit" value="Make new Book!" />
+    </form>
   `
+
+  main.appendChild(formDiv)
+  formDiv.querySelector('form').addEventListener('submit', handleNewBookSubmit)
+
+}
+
+
+function renderNewReviewForm(){
+  formDiv.innerHTML = `
+    <form>
+    Select a Book:<select>
+    <option value="default" selected="selected">Select one option </option>
+  ${Book.all.map(book => {
+    return `<option value=${book.id}>${book.title} by ${book.author}</option>`
+  }).join("")}
+ </select>
+ <br>
+ <input type="text" />
+ <input type="submit" value="Please leave a Review!"/>
+ <br>
+   
+    <br>
+    </form>
+  `
+  formDiv.querySelector('form').addEventListener('submit', handleNewReviewSubmit)
   main.appendChild(formDiv)
 }
+
+
+
 
 
 
