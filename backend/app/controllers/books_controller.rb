@@ -1,3 +1,4 @@
+
 class BooksController < ApplicationController
 
     
@@ -16,20 +17,22 @@ class BooksController < ApplicationController
 
     # POST /books
     def create
-        new_book = Book.new(title: params['title'], author: params['author'], genre: params['genre'], image_url: params['image_url'])
+        
+        new_book = Book.new(book_params)
         if new_book.save
             render json: BookSerializer.new(new_book)
         else
             render json: new_book.errors
         end
-        
     end
+   
     def destroy
         book = Book.find_by(id: params[:id])
         book.destroy
     end
 
     private
+
     def book_params
         params.require(:book).permit(:title, :author, :genre, :image_url)
     end

@@ -40,10 +40,14 @@ function handleNewBookSubmit(event){
       title: inputs[0].value,
       author: inputs[1].value,
     genre: inputs[2].value,
-    cover_url: inputs[3].value
+    image_url: inputs[3].value
     }
     
-    booksAdapter.newBook(newBookObj)
+    return booksAdapter.createBook(newBookObj).then(book => {
+      console.log("book created!", book)
+    }).catch(err => {
+      console.error(err)
+    })
   }
 
 function handleNewReviewSubmit(event) {
@@ -66,7 +70,7 @@ function renderAllBooks(){
   //render all books with title, genre, author, image_url
 }
 function renderAllBooksReviews(){
-  Book.all.forEach(review => {
+ Review.all.forEach(review => {
      main.appendChild(review.fullRender())
    })
 
@@ -76,7 +80,7 @@ function renderAllBooksReviews(){
   formDiv.innerHTML = `
   <form>
     Book Title:
-    <input type="text" />
+    <input type="text" name="title" />
     <br>
     Book Author:
     <input type="text" />
