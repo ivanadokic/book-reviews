@@ -1,7 +1,6 @@
 class Book {
     static all = []
- 
-  
+
     constructor({title, author, genre, image_url, id}){
       this.id = id
       this.title = title
@@ -16,14 +15,15 @@ class Book {
       Book.all.push(this)
     }
     review(){
-      return Review.all.find(review => bookAdapter.title === this.book.title)
+      return Review.all.find(review => review.id === this.book_id)
     }
     fullRender(){
-      this.element.innerHTML = ` <h1>${this.author}</h1>
-    <p>Genre: ${this.genre}</p>
-    <p>Author: ${this.author}</p>
-    <p>Title: ${this.title}</p>
-    <p>Book Cover: ${this.image_url}</p>`
-    return this.element
+      this.element.innerHTML = `
+      <h1>${this.author}</h1>
+      <p>Book Title: ${this.title}</p>
+      <p>Genre: ${this.genre}</p>
+      <p>Book Cover: ${this.image_url}</p>
+      <p>Review: ${this.review().description}`
+      return this.element
     }
 }

@@ -57,16 +57,12 @@ function handleNewReviewSubmit(event) {
       book_id: event.target.querySelector('select').value,
       description: event.target.querySelector('input').value
     }
-
     const review = new Review(reviewObj)
-
     review.submit()
-
 }
 
 const callbacks = {
   allBooks: renderAllBooks,
-  //allReviews: renderAllReviews,
   booksReviews: renderAllBooksReviews,
   newBook: renderNewBookForm,
   newReview: renderNewReviewForm
@@ -85,7 +81,7 @@ function renderAllBooksReviews(){
 //render all reviews with description
  }
 
- function renderNewBookForm(){
+function renderNewBookForm(){
   formDiv.innerHTML = `
   <form>
     Book Title:

@@ -15,7 +15,7 @@ class Review{
     }
     books(){
       return Book.all.filter(function(book){
-        return book.title === this.id
+        return book.id === this.id
       }, this)
     }
 
@@ -47,9 +47,9 @@ class Review{
 
   fullRender(){
     this.element.innerHTML = `
-    <h1>${this. description}</h1>
-    <h3>This book's Review: <h3>
-    ${this.books().map(book => book.title).join(", ")}
+    <h3>This book ${this.book} reviews: <h3>
+    <h1>${this.description}</h1>
+    ${this.books().map(book => book.review).join(", ")}
     `
     return this.element
 
