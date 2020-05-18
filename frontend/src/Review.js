@@ -1,4 +1,4 @@
-class Review{
+class Review {
 
     static all = []
   
@@ -13,12 +13,12 @@ class Review{
       Review.all.push(this)
       
     }
+    
     books(){
       return Book.all.filter(function(book){
-        return book.id === this.id
+        return book.id === this.book_id
       }, this)
     }
-
 
   submit() {
     const body = JSON.stringify({
@@ -47,11 +47,11 @@ class Review{
 
   fullRender(){
     this.element.innerHTML = `
-    <h3>This book ${this.book} reviews: <h3>
-    <h1>${this.description}</h1>
+    <h1>This book reviews: <h1>
+    <h3>${this.description}</h3>
     ${this.books().map(book => book.review).join(", ")}
     `
-    return this.element
-
+   return this.element
   }
 }
+

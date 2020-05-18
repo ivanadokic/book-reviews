@@ -7,6 +7,7 @@ class Book {
       this.author = author
       this.genre = genre
       this.image_url = image_url
+     
   
       this.element = document.createElement('div')
       this.element.className = "book"
@@ -17,13 +18,16 @@ class Book {
     review(){
       return Review.all.find(review => review.id === this.book_id)
     }
+   
+    
     fullRender(){
       this.element.innerHTML = `
       <h1>${this.author}</h1>
       <p>Book Title: ${this.title}</p>
       <p>Genre: ${this.genre}</p>
       <p>Book Cover: ${this.image_url}</p>
-      <p>Review: ${this.review().description}`
+      <p>Review: ${this.review().description}</p>
+      `
       return this.element
     }
 }

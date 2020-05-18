@@ -227,9 +227,6 @@ function renderNewReviewForm(){
    // addComment(text) {
    //    this.data
 
-//   add a form to the page 
-  // click
-   //add review to book
-   //form will have a class add review
+
 
    
