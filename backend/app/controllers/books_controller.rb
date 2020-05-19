@@ -7,9 +7,13 @@ class BooksController < ApplicationController
         options[:include] = [:reviews]
         render json: BookSerializer.new(books, options)
     end
+    
     def show
+        options = {}
+        options[:include] = [:reviews, :'reviews.description', :'reviews.book_id']
+     
         book = Book.find_by(id: params[:id])
-        render json: BookSerializer.new(book)
+        render json: BookSerializer.new(book, options)
     end
     # POST /books
     def create
