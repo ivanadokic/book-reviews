@@ -18,7 +18,8 @@ class Book {
     review(){
       return Review.all.find(review => review.id === this.book_id)
     }
-   
+
+ 
     
     fullRender(){
       this.element.innerHTML = `
