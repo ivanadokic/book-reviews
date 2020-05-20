@@ -4,6 +4,7 @@ class BooksAdapter{
     }
     createBook(bookObj) {
       const body = JSON.stringify({
+        //JSON.stringify() method converts a JavaScript object or value to a JSON string
         book: bookObj
       })
       return fetch(this.baseURL, {
@@ -35,6 +36,6 @@ class BooksAdapter{
             
           })
         })
-        .then(console.log)
+        .then(console.log(Book.all))
     }
   }

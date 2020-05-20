@@ -1,11 +1,4 @@
 
-//const bookList = document.getElementById('book-list')
-//const bookTitle = document.getElementById('book-title')
-////const bookAuthor = document.getElementById('book-author')
-//const bookGenre = document.getElementById('book-genre')
-//const bookImage = document.getElementById('book-image')
-//const bookButton = document.getElementById('add-button')
-
 //Get all Books
 //Get all Reviews
 const booksAdapter = new BooksAdapter("http://localhost:3000/books")
@@ -23,10 +16,10 @@ const menu = document.getElementById('menu')
 
 const formDiv = document.createElement('div')
 
-menu.addEventListener('click', handleMenuClick)
+menu.addEventListener('click', handleMenuClick) //trigger handleMenuClick finction
 
 function handleMenuClick(event){
-  if (event.target.id !== menu){
+  if (event.target.id !== menu){ //check if the targert is nayting besides the menu
     main.innerHTML = ``
     callbacks[`${event.target.id}`]()
   }
@@ -61,7 +54,8 @@ function handleNewReviewSubmit(event) {
     review.submit()
 }
 
-const callbacks = {
+//defined object with key value pair
+const callbacks = { 
   allBooks: renderAllBooks,
   booksReviews: renderAllBooksReviews,
   newBook: renderNewBookForm,

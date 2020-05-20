@@ -11,14 +11,13 @@ class Book {
   
       this.element = document.createElement('div')
       this.element.className = "book"
-      this.element.title = `book-${this.id}`
+      this.element.id = `book-${this.id}`
   
       Book.all.push(this)
     }
     reviews(){
       return Review.all.filter(review => review.book_id == this.id)
-    }
-
+    }//filter find mutliple matches and map find just one
     
     
     fullRender(){

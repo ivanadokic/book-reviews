@@ -14,7 +14,7 @@ class Review {
       
     }
     
-    book(){
+    books(){
       return Book.all.filter(function(book){
         return book.id === this.book_id
       }, this)
@@ -53,15 +53,16 @@ class Review {
       Read reviews for this Book:<select>
         <option value="default" selected="selected">Select one option </option>
         ${Book.all.map(book => {
-          return `<option value=${book.id}>${book.title} by ${book.author}</option>`
+          return `<option value=${book.id}>${book.title} by ${book.author} $(book.review}</option>`
         }).join("")}
       </select>
         <br>  
     </form>
   
- 
+    <p>${this.books().map(book => book.title).join(", ")}</p>
     <h1>${this.description}</h1>
-    <p>${this.book().review}</p>`
+    
+   ` 
     
     //<p>Review: ${this.reviews().map(review => review.description).join(", ")}</p>
    return this.element
