@@ -53,7 +53,7 @@ class Review {
       Read reviews for this Book:<select>
         <option value="default" selected="selected">Select one option </option>
         ${Book.all.map(book => {
-          return `<option value=${book.id}>${book.title} by ${book.author} $(book.review}</option>`
+          return `<option value=${book.id}>${book.title} by ${book.author}</option>`
         }).join("")}
       </select>
         <br>  

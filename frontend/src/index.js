@@ -20,7 +20,7 @@ menu.addEventListener('click', handleMenuClick) //trigger handleMenuClick fincti
 
 function handleMenuClick(event){
   if (event.target.id !== menu){ //check if the targert is nayting besides the menu
-    main.innerHTML = ``
+    main.innerHTML = ``          //to clear inner html before its replaced, this is logic that helps page change
     callbacks[`${event.target.id}`]()
   }
 }
@@ -64,9 +64,27 @@ const callbacks = {
 
 function renderAllBooks(){
  Book.all.forEach(book => {
+    // render all books with title, genre, author, image_url
     main.appendChild(book.fullRender())
   })
-  //render all books with title, genre, author, image_url
+  main.addEventListener("click", (event) => {
+    if(event.target.className === "book-link") {
+      event.preventDefault()
+      const book_id = event.target.dataset.bookId
+      
+      const reviewList = document.querySelector(`#book-${book_id}-review-list`)
+      const isHidden = reviewList.className.includes("hidden")
+      if(isHidden) {
+        reviewList.className = ""
+        event.target.text = "Hide reviews"
+      }
+      else {
+        reviewList.className = "hidden"
+        event.target.text = "Show reviews" 
+      }
+    }
+  })
+  
 }
 function renderAllBooksReviews(){
  Review.all.forEach(review => {
