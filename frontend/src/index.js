@@ -110,18 +110,18 @@ function renderNewBookForm(){
 function renderNewReviewForm(){
   formDiv.innerHTML = `
     <form>
-    Select a Book:<select>
-    <option value="default" selected="selected">Select one option </option>
-  ${Book.all.map(book => {
-    return `<option value=${book.id}>${book.title} by ${book.author}</option>`
-  }).join("")}
- </select>
- <br>
- <input type="text" name="description" />
- <input type="submit" value="Please leave a Review!"/>
- <br>
-   
-    <br>
+      Select a Book:<select>
+        <option value="default" selected="selected">Select one option </option>
+        ${Book.all.map(book => {
+          return `<option value=${book.id}>${book.title} by ${book.author}</option>`
+        }).join("")}
+      </select>
+        <br>
+        <input type="text" name="description" />
+        <input type="submit" value="Please leave a Review!"/>
+        <br>
+
+        
     </form>
   `
   formDiv.querySelector('form').addEventListener('submit', handleNewReviewSubmit)

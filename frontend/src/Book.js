@@ -15,11 +15,11 @@ class Book {
   
       Book.all.push(this)
     }
-    review(){
-      return Review.all.find(review => review.id === this.book_id)
+    reviews(){
+      return Review.all.filter(review => review.book_id == this.id)
     }
 
- 
+    
     
     fullRender(){
       this.element.innerHTML = `
@@ -27,8 +27,13 @@ class Book {
       <p>Book Title: ${this.title}</p>
       <p>Genre: ${this.genre}</p>
       <p>Book Cover: ${this.image_url}</p>
-      <p>Review: ${this.review().description}</p>
+      <p>Read all Reviews: ${this.reviews().map(review => review.description).join(", ")}</p>
       `
       return this.element
     }
+
+   
+  
+
+
 }

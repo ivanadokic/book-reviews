@@ -8,7 +8,7 @@ class ReviewsAdapter{
         .then(res => res.json())
         .then(resObj => {
           resObj.data.forEach(obj => {
-            let sanitized = {description: obj.description, ...obj.attributes}
+            let sanitized = {id: obj.id, ...obj.attributes}
             new Review(sanitized)
             console.log(sanitized)
           })
