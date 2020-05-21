@@ -16,18 +16,19 @@ const menu = document.getElementById('menu')
 
 const formDiv = document.createElement('div')
 
-menu.addEventListener('click', handleMenuClick) //trigger handleMenuClick finction
+menu.addEventListener('click', handleMenuClick) //trigger handleMenuClick function
 
 function handleMenuClick(event){
-  if (event.target.id !== menu){ //check if the targert is nayting besides the menu
-    main.innerHTML = ``          //to clear inner html before its replaced, this is logic that helps page change
+  if (event.target.id !== menu){ //check if the target is anyting besides the menu
+
+    main.innerHTML = ``//to clear inner html before its replaced, this is logic that helps page change
     callbacks[`${event.target.id}`]()
   }
 }
 
 function handleNewBookSubmit(event){
   event.preventDefault()
-    let inputs = formDiv.querySelectorAll('input')
+    let inputs = formDiv.querySelectorAll('input') //iterate over all and use index to grab the value
     let select = formDiv.querySelector('select')
     let newBookObj = {
       title: inputs[0].value,
@@ -36,7 +37,7 @@ function handleNewBookSubmit(event){
     image_url: inputs[3].value
     }
     
-    return booksAdapter.createBook(newBookObj).then(book => {
+    return booksAdapter.createBook(newBookObj).then(book => { //passing newBookObj to booksAdapter
       console.log("book created!", book)
     }).catch(err => {
       console.error(err)
