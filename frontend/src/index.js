@@ -68,20 +68,26 @@ function renderAllBooks(){
     // render all books with title, genre, author, image_url
     main.appendChild(book.fullRender())
   })
+
   main.addEventListener("click", (event) => {
-    if(event.target.className === "book-link") {
-      event.preventDefault()
+    if(event.target.matches(".book-link")) { //
+      event.preventDefault() //prevent from following link
       const book_id = event.target.dataset.bookId
       
       const reviewList = document.querySelector(`#book-${book_id}-review-list`)
       const isHidden = reviewList.className.includes("hidden")
+      console.log("link clicked")
+      console.log(reviewList.className)
+      debugger
       if(isHidden) {
         reviewList.className = ""
         event.target.text = "Hide reviews"
+        console.log("link clicked hidden")
       }
       else {
         reviewList.className = "hidden"
         event.target.text = "Show reviews" 
+        
       }
     }
   })

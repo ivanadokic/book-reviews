@@ -14,4 +14,5 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
        methods: [:get, :post, :put, :patch, :delete, :options, :head]
    end
 end
-# Inside the allow block, origins '*' means we are allowing requests from all origins and are allowing [:get, :post, :patch, :delete] requests to the AP
+# Inside the allow block, origins '*' means we are allowing requests 
+# from all origins and are allowing [:get, :post, :patch, :delete] requests to the API
