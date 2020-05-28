@@ -39,7 +39,7 @@ class Review {
     }).then(data => {
       this.id = data.id
 
-      //do stuff - reset form or show something else
+      
       callbacks['booksReviews']()
       console.log('successfully created review')
     })

@@ -4,7 +4,11 @@ class BooksController < ApplicationController
     def index
         books = Book.all 
         options = {}
-        options[:include] = [:reviews]
+        options[:include] = [:reviews]  
+        # Beacuse we have Serialziers when including :reviews
+        #Fast JSON API will automatically serialize their attributes as well
+        #the recommended method is to pass in a second options parameter to the serializer
+        # indicating that we want to include those objects
         render json: BookSerializer.new(books, options)
     end
     

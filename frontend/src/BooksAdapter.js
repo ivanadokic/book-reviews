@@ -24,7 +24,9 @@ class BooksAdapter{
     //the adapter is going to do all fetch requests that correspond to books
     fetchBooks(){
       fetch(this.baseURL)
-        .then(res => res.json())
+        .then(res => res.json())//function(response) {
+          //   return response.json();
+         // }
         .then(resObj => {
           resObj.data.forEach(bookObj => {
             const {id, attributes} = bookObj

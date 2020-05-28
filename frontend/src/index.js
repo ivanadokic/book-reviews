@@ -19,7 +19,7 @@ const formDiv = document.createElement('div')
 menu.addEventListener('click', handleMenuClick) //trigger handleMenuClick function
 
 function handleMenuClick(event){
-  if (event.target.id !== menu){ //check if the target is anyting besides the menu
+  if (event.target.id !== menu){ //check if the target is anyting besides the menu bcs if clicked on menu that will be menuid  undefined in Object/collback
 
     main.innerHTML = ``//to clear inner html before its replaced, this is logic that helps page change
     callbacks[`${event.target.id}`]()
@@ -27,6 +27,10 @@ function handleMenuClick(event){
 }
 
 function handleNewBookSubmit(event){
+  //By default, Form elements automatically submit the form, 
+  //which redirects the browser to a new url. We want to prevent 
+  //that event from performing its default behavior (submitting the form), 
+  //because we want to update the DOM using JavaScript
   event.preventDefault()
     let inputs = formDiv.querySelectorAll('input') //iterate over all and use index to grab the value
     let select = formDiv.querySelector('select')
@@ -76,13 +80,11 @@ function renderAllBooks(){
       
       const reviewList = document.querySelector(`#book-${book_id}-review-list`)
       const isHidden = reviewList.className.includes("hidden")
-      console.log("link clicked")
-      console.log(reviewList.className)
-      debugger
+    
       if(isHidden) {
         reviewList.className = ""
         event.target.text = "Hide reviews"
-        console.log("link clicked hidden")
+      
       }
       else {
         reviewList.className = "hidden"
