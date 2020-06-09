@@ -19,7 +19,8 @@ const formDiv = document.createElement('div')
 menu.addEventListener('click', handleMenuClick) //trigger handleMenuClick function
 
 function handleMenuClick(event){
-  if (event.target.id !== menu){ //check if the target is anyting besides the menu bcs if clicked on menu that will be menuid  undefined in Object/collback
+  if (event.target.id !== menu){ //check if the target is anyting besides the menu 
+    //bcs if clicked on menu that will be menuid undefined in Object/collback
 
     main.innerHTML = ``//to clear inner html before its replaced, this is logic that helps page change
     callbacks[`${event.target.id}`]()
@@ -69,9 +70,11 @@ const callbacks = {
 
 function renderAllBooks(){
  Book.all.forEach(book => {
+   
     // render all books with title, genre, author, image_url
     main.appendChild(book.fullRender())
   })
+  
 
   main.addEventListener("click", (event) => {
     if(event.target.matches(".book-link")) { //
@@ -98,9 +101,9 @@ function renderAllBooks(){
 function renderAllBooksReviews(){
  Review.all.forEach(review => {
      main.appendChild(review.fullRender())
-   })
-//render all reviews with description
- }
+ })
+ //render all reviews with description
+}
 
 function renderNewBookForm(){
   formDiv.innerHTML = `
@@ -148,5 +151,7 @@ function renderNewReviewForm(){
   formDiv.querySelector('form').addEventListener('submit', handleNewReviewSubmit)
   main.appendChild(formDiv)
 }
+//querySelector() takes one argument, and returns the first element that matches these selectors.
 
 
+        

@@ -14,12 +14,23 @@ class BooksAdapter{
         },
         body: body,
         method: 'POST'
-      }).then(res => { 
-        const json = res.json()
-        console.log(res.status)
-        console.log(json)
-        return json
+      }).then(res => res.json())
+       .then(resObj => {
+        const {id, attributes} =resObj.data
+        const sanitized = {
+          ...attributes,
+          id
+        }
+        new Book(sanitized)
+        
+        
+   
+     
+      
+        
       })
+      
+    
     }
     //the adapter is going to do all fetch requests that correspond to books
     fetchBooks(){

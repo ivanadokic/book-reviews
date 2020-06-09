@@ -1,0 +1,31 @@
+
+#menu {
+    display: flex;
+    background: rgb(212, 235, 192);
+    opacity: .8;
+    height: 2rem;
+    padding: 1rem;
+}
+
+span {
+
+    color: blue;
+    font-family: times;
+    text-decoration: none;
+    font-size:30px;
+}
+body {
+    background-color: rgb(235, 237, 245);
+    opacity: .22rem;
+  }
+  h1{
+    color: blue;
+  }
+.book {
+  color: rgb(228, 6, 249);
+  font-size:20px;
+
+}
+ 
+
+ 
