@@ -31,3 +31,14 @@ Following features were build and as a user, i can:
 -create a new book and add it
 
 -cerate a new review for selected book
+
+## Project requirements
+- JavaScript frontend with a Rails API backend. All interactions between the client and the server required to be handled asynchronously (AJAX) and use JSON as the communication format.
+
+-It needed to organize data through Object Oriented JavaScript (classes) to encapsulate related data and behavior, and domain model served by the Rails backend must include a resource with at least one has-many relationship.
+
+-The backend and frontend must collaborate to demonstrate Client-Server Communication.
+
+-Application should have at least 3 AJAX calls, covering at least 2 of Create, Read, Update, and Delete (CRUD).
+
+-Client-side JavaScript code must use fetch with the appropriate HTTP verb, and your Rails API should use RESTful conventions.
