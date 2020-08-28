@@ -33,7 +33,7 @@ Following features were build and as a user, i can:
 -cerate a new review for selected book
 
 ## Project requirements
-- JavaScript frontend with a Rails API backend. All interactions between the client and the server required to be handled asynchronously (AJAX) and use JSON as the communication format.
+-JavaScript frontend with a Rails API backend. All interactions between the client and the server required to be handled asynchronously (AJAX) and use JSON as the communication format.
 
 -It needed to organize data through Object Oriented JavaScript (classes) to encapsulate related data and behavior, and domain model served by the Rails backend must include a resource with at least one has-many relationship.
 
