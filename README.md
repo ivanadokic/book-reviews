@@ -11,6 +11,7 @@ Fork and clone repo:
 https://github.com/ivanadokic/book-reviews
 
 Using two terminals, switch to each respective directory:
+
 $ cd book-reviews/backend/
 $ cd book-reviews/frontend/
 
