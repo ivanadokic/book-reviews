@@ -43,3 +43,13 @@ Following features were build and as a user, i can:
 -Application should have at least 3 AJAX calls, covering at least 2 of Create, Read, Update, and Delete (CRUD).
 
 -Client-side JavaScript code must use fetch with the appropriate HTTP verb, and your Rails API should use RESTful conventions.
+
+### JavaScript
+Use classes and functions to organize code into reusable pieces.
+Translate JSON responses into JavaScript model objects using ES6 class or constructor function syntax.
+Use ES6 features when appropriate (e.g. arrow functions, let & const, rest and spread syntax).
+
+### Rails
+Follow Rails MVC and RESTful conventions. 
+Well-named variables and methods
+Short, single-purpose methods
