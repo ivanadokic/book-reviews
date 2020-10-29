@@ -27,7 +27,7 @@ Following features were build and as a user, i can:
 
 -see all books with their: title, genre, book cover 
 
--see all reviws for particular book
+-see all reveiws for particular book
 
 -create a new book and add it
 
