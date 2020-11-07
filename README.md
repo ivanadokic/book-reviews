@@ -5,6 +5,7 @@ What is on your reading list, option to share your favorite titles and add revie
 
 This is Single Page Application(SPA) with HTML, CSS, and JavaScript frontend and Rails API backend. 
 
+<a href="https://imgur.com/weFiLwg"><img src="https://i.imgur.com/weFiLwg.jpg" title="source: imgur.com" /></a>
 ## Installation
 
 Fork and clone repo:
