@@ -53,4 +53,4 @@ Use ES6 features when appropriate (e.g. arrow functions, let & const, rest and s
 ### Rails
 Follow Rails MVC and RESTful conventions. 
 Well-named variables and methods
-Short, single-purpose methods
+Short, single-purpose methods.
