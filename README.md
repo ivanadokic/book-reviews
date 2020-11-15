@@ -18,8 +18,8 @@ $ cd book-reviews/frontend/
 Startup the server :
 $ rails s
 
-Enter in your browser to launch the rails server:
-$  http://localhost:3000/books
+Enter in your browser to view:
+$ book-reviews/frontend/index.html
 
 ## Usage
 
