@@ -5,6 +5,7 @@ What is on your reading list, option to share your favorite titles and add revie
 
 This is Single Page Application(SPA) with HTML, CSS, and JavaScript frontend and Rails API backend. 
 
+<a href="https://imgur.com/weFiLwg"><img src="https://i.imgur.com/weFiLwg.jpg" title="source: imgur.com" /></a>
 ## Installation
 
 Fork and clone repo:
@@ -27,7 +28,7 @@ Following features were build and as a user, i can:
 
 -see all books with their: title, genre, book cover 
 
--see all reviws for particular book
+-see all reveiws for particular book
 
 -create a new book and add it
 
@@ -52,4 +53,4 @@ Use ES6 features when appropriate (e.g. arrow functions, let & const, rest and s
 ### Rails
 Follow Rails MVC and RESTful conventions. 
 Well-named variables and methods
-Short, single-purpose methods
+Short, single-purpose methods.
