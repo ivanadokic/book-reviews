@@ -17,7 +17,7 @@ Using two terminals, switch to each respective directory:
 $ cd book-reviews/backend/
 $ cd book-reviews/frontend/
 
-Startup the server :
+Startup the server:
 $ rails s
 
 Enter in your browser to view:
